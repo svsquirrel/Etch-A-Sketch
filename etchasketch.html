@@ -8,10 +8,9 @@
 </head>
 <style>
     :root {
-        --hgt: 160px;
-        --wth: 160px;
-        --numcol: repeat(6,1fr);
-        --numrow: repeat(6, 1fr);
+
+        --num: 16;
+       
         
     }
    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
@@ -33,22 +32,21 @@
         height: 960px;
        
     }
-    #gameSpace {
-        
+    #gameSpace { 
+       
         border-color: black;
         border-style: solid;
         border-width: 2px;
         display: grid;
-        grid-template-columns: var(--numcol);
-        grid-template-rows: var(--numrow);
+        grid-template-columns: repeat(var(--num), 1fr);
+        grid-template-rows: repeat(var(--num), 1fr);
      
     }
     .box {
-        height: var(--hgt);
-        width:  var(--wth);
+      
         border-color: black;
         border-style: solid;
-        border-width: 2px;
+        border-width: 2px;  
        
     }
     

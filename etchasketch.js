@@ -6,39 +6,38 @@
 // and send the user a popup asking for the number of squares per side for the new grid. 
 //Once entered, the new grid should be generated in the same total space as before (e.g. 960px wide) 
 //so that you’ve got a new sketch pad. Tip: Set the limit for the user input to a maximum of 100.
-//define the size that the grid has to fit in, then set the width/height of each grid cell equal to x/100%
-  const choice = 6;
+
+  const choice = 3;
+  
   const butt = document.querySelector('button')
   const buttons = butt.addEventListener("click", () =>{
       
-      makeSquares(choice)
+     makeGrid(),makeSquares(choice)
   });
- /* function sizeSquares() {
+
+  //Change the grid to the desired size
+  function makeGrid() {
     
-     breadth = 960 / choice;
-     
-     newhgt = breadth + "px";
-    
-     //newwth = breadth + "px";
-   // var r = document.querySelector(':root');
-   .// r.style.setProperty('--hgt', 'breadth');
-    //r.style.setProperty('--wth', 'breadth');
-}
-  */
-//make the div have aborder width and height = to choice
+    var r = document.querySelector(':root');
+    r.style.setProperty('--num', choice);
+  } 
+
+//make the number of divs required to fill the grid
 function makeSquares(num) {
      
-    space = document.querySelector ("#gameSpace"); 
+  space = document.querySelector ("#gameSpace"); 
 
-    for (i = 0; i < (num * num) ;i++ ) {
-     div = document.createElement('div');
-     div.className = "box";
-     
-     space.appendChild(div);
-    }
+  for (i = 0; i < (num* num) ;i++ ) {
+
+   div = document.createElement('div');
+   div.className = "box";
+   space.appendChild(div);
+
+  }
 }
 
-  
+
+
 
 
 
