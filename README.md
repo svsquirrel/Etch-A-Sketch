@@ -1,2 +1,3 @@
 # Etch-A-Sketch
-THIS DOES NOT WORK YET!!!
+A project to learn more about event listeners and how to create
+elements using javascript. 

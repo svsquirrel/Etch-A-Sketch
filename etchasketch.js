@@ -1,43 +1,68 @@
 //Etch a Sketch
-//create 16x16 grid of squares using js (put in a container div)
-//Set up a “hover” effect so that the grid divs change color when your mouse passes over them,
-// leaving a (pixelated) trail through your grid like a pen would. 
-//Add a button to the top of the screen which will clear the current grid
-// and send the user a popup asking for the number of squares per side for the new grid. 
-//Once entered, the new grid should be generated in the same total space as before (e.g. 960px wide) 
-//so that you’ve got a new sketch pad. Tip: Set the limit for the user input to a maximum of 100.
 
-  const choice = 3;
-  
-  const butt = document.querySelector('button')
-  const buttons = butt.addEventListener("click", () =>{
-      
-     makeGrid(),makeSquares(choice)
-  });
+  const space = document.querySelector ("#gameSpace"); 
+  const r = document.querySelector(':root');
+  const butt = document.querySelector('button');
+  const buttons = butt.addEventListener("click", changeGrid);
+  var choice = 16;
 
-  //Change the grid to the desired size
-  function makeGrid() {
+  //Setup the default play area
+  window.addEventListener('load', () => {
+
+    makeGrid(choice), makeSquares(choice)
     
-    var r = document.querySelector(':root');
+  });
+  //Get the users desired size of sketch pad
+ 
+      function changeGrid() {
+
+      sq = prompt("Enter how many squares tall you want your sketch pad/ Max is 50");
+      if (sq !== null)
+           if (sq<0 || sq>50) {
+
+          alert("Please pick a number between 1 and 50");
+          changeGrid();
+
+      } else {
+          choice = sq;
+          clearGrid(), makeGrid(choice), makeSquares(choice);
+      }
+    };
+  
+  //Empty the grid container between plays
+  function clearGrid(){
+    
+      const gridArray = Array.from(space.childNodes);
+      gridArray.forEach((element) => {
+      space.removeChild(element);
+      });
+    }
+ 
+  //Change the grid to the desired size
+ function makeGrid() {
+   
     r.style.setProperty('--num', choice);
+
   } 
 
 //make the number of divs required to fill the grid
 function makeSquares(num) {
-     
-  space = document.querySelector ("#gameSpace"); 
 
   for (i = 0; i < (num* num) ;i++ ) {
 
-   div = document.createElement('div');
-   div.className = "box";
-   space.appendChild(div);
-
+   divs = document.createElement('div');
+   divs.className ="box";
+   divs.addEventListener("mouseover", changeColor);
+   
+   space.appendChild(divs);
   }
-}
+};
 
-
-
-
-
+// Now change the color of the grid squares as the mouse is held over them
+function changeColor(grid) {
+  var color = [, "#3C9EE7", "#E7993C", "#E73C99", "#3CE746", "#E7993C"];
+  random = color[Math.floor(Math.random() * color.length)];
+  grid.target.style.backgroundColor = random;
+     
+  };
 

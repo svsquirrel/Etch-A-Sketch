@@ -8,10 +8,100 @@
 </head>
 <style>
     :root {
-
+        --color: white;
         --num: 16;
-       
+    }
+   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+    body {
+      font-size: 14;
+      font-family: 'Noto Sans', sans-serif;
+      background-color: white;
+     }
+    
+    #content {
+
+        display: grid;
+        grid-template-rows: 75px 100px 600px 20px;
+    }
+    header {
         
+        margin-left: 45%;
+        display:grid;
+        grid-template-rows:1;
+        text-emphasis: bold;
+        
+    }
+    #selection {
+
+        grid-template-rows: 2;
+        margin-left: 47%;
+        
+    }
+    .btn {
+
+        width: 125px;
+        height: 35px;
+        text-justify: auto;
+        
+    }
+   
+    #main{
+
+        background-color: white;
+        display:grid;
+        grid-template-rows: 3;
+        grid-template-columns: 1fr 600px 1fr;
+       
+    }
+    #gameSpace { 
+       
+        border-color: black;
+        border-style: solid;
+        border-width: 2px;
+        display: grid;
+        grid-template-columns: repeat(var(--num), 1fr);
+        grid-template-rows: repeat(var(--num), 1fr);
+     
+    }
+    .box {
+
+        background-color: var(--color);
+        border-color: black;
+        border-style: solid;
+        border-width: 2px; 
+         
+    }
+   
+</style>
+<body>
+    <container id = "content">
+    <header>
+        <h1>Etch A Sketch</h1>
+    </header>
+    <button id = "selection" class = "btn">Set Your Grid Size</button>
+    <main id = "main">
+        <div></div>
+        <div id = "gameSpace"></div>
+        <div></div>
+
+    </main>
+    <script src = "etchasketch.js "></script> 
+  </container>
+</body>
+</html>
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    :root {
+        --color: white;
+        --num: 16;
     }
    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
     body {
@@ -22,10 +112,18 @@
    
     header {
         height: 100px;
-        margin-left: 48%;
-       }
+        margin-left: 40%;
+        display:grid;
+        grid-template-rows: 40%, 60%;
+        
+    }
+    #selection {
+        width:120px;
+        padding-bottom: 15px;
+    }
    
     #main{
+
         background-color: white;
         display:grid;
         grid-template-columns: 1fr 960px 1fr;
@@ -43,22 +141,18 @@
      
     }
     .box {
-      
+        background-color: var(--color);
         border-color: black;
         border-style: solid;
-        border-width: 2px;  
-       
-    }
-    
-
-    .box:hover {
-        background: pink;
+        border-width: 2px; 
+         
     }
    
 </style>
 <body>
     <header>
-        <button id = "selection">Clear</button>
+        <h2>Etch A Sketch</h2>
+        <button id = "selection">Set Your Grid Size</button>
     </header>
     <main id = "main">
         <div></div>
@@ -70,3 +164,4 @@
 
 </body>
 </html>
+-->
